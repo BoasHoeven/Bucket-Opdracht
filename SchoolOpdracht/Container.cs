@@ -21,6 +21,13 @@ namespace SchoolOpdracht
 					_content = value;
 					if (_content >= Capacity)
 						Full?.Invoke(this, null);
+
+					if (_content > Capacity)
+					{
+						Overflow?.Invoke(this, null);
+						_content = Capacity;
+					}
+
 				}
 			}
 		}
@@ -48,5 +55,6 @@ namespace SchoolOpdracht
 
 		// Events
 		public event EventHandler<EventArgs> Full;
+		public event EventHandler<EventArgs> Overflow;
 	}
 }

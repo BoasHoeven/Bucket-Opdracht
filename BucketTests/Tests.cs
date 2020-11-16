@@ -21,6 +21,21 @@ namespace BucketTests
 		}
 
 		[Fact]
+		public void OverflowEvent()
+		{
+			// Arrange
+			bool triggered = false;
+			Bucket bucket = new Bucket();
+
+			// Perform
+			bucket.Overflow += (o, e) => { triggered = true; };
+			bucket.Content = bucket.Capacity + 5;
+
+			// Validation
+			Assert.True(triggered);
+		}
+
+		[Fact]
 		public void FillBucketWithBucket()
 		{
 			// Arrange
