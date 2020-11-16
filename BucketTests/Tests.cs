@@ -8,11 +8,11 @@ namespace BucketTests
 		[Fact]
 		public void FullEvent()
 		{
-			// Setup
+			// Arrange
 			bool triggered = false;
 			Bucket bucket = new Bucket();
 
-			// Action
+			// Perform
 			bucket.Full += (o, e) => { triggered = true; };
 			bucket.Content = bucket.Capacity;
 
@@ -23,13 +23,13 @@ namespace BucketTests
 		[Fact]
 		public void FillBucketWithBucket()
 		{
-			// Setup
+			// Arrange
 			Bucket bucket1 = new Bucket();
 			bucket1.Content = 5;
 			Bucket bucket2 = new Bucket();
 			bucket2.Content = 5;
 
-			// Action
+			// Perform
 			bucket1.Fill(bucket2);
 
 			// Validation

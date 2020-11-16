@@ -10,6 +10,9 @@
 
 		public void Fill(Bucket bucket)
 		{
+			if (bucket.Content <= 0)
+				return;
+
 			Content += bucket.Content;
 			bucket.Content -= bucket.Content;
 		}

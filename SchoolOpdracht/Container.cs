@@ -20,9 +20,7 @@ namespace SchoolOpdracht
 				{
 					_content = value;
 					if (_content >= Capacity)
-					{
 						Full?.Invoke(this, null);
-					}
 				}
 			}
 		}
@@ -49,7 +47,6 @@ namespace SchoolOpdracht
 		}
 
 		// Events
-
 		public event EventHandler<EventArgs> Full;
 	}
 }
